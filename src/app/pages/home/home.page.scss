@@ -1,0 +1,47 @@
+[contentGrid] {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  ion-row:first-child {
+    justify-content: center;
+  }
+
+  [card] {
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: white;
+    margin: 1vh 1vw;
+    min-width: 400px;
+    max-width: 600px;
+
+    .fieldRow:not(:last-child) {
+      border-bottom: 1px solid var(--ion-color-medium);
+    }
+
+    .fieldTitle {
+      font-size: 1.2em;
+      text-transform: capitalize;
+      color: var(--ion-color-danger);
+    }
+
+    // left column
+    ion-col:first-child {
+      text-align: right;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    // right column
+    ion-col:last-child {
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
+      // overflow: hidden;
+      margin: auto;
+    }
+  }
+}

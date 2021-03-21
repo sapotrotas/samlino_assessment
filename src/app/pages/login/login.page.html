@@ -1,0 +1,49 @@
+<ion-content mode="ios">
+  <form [formGroup]="loginForm" (keyup.enter)="loginForm.valid && login()" (ngSubmit)="login()">
+    <ion-grid>
+
+      <!-- company logo -->
+      <ion-row (click)="utilsProvider.debugForm(loginForm)">
+        <img src="assets/images/ioniclogo.svg" />
+      </ion-row>
+
+      <ion-row>
+        <ion-label color="dark">
+          Log in to your account
+        </ion-label>
+      </ion-row>
+
+      <ion-row>
+        <ion-item lines="none">
+          <ion-label position="floating">
+            Email address
+          </ion-label>
+          <ion-input formControlName="email" (ionChange)="utilsProvider.trimFormValue(loginForm, 'email')" clearInput>
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label position="floating">
+            Password
+          </ion-label>
+          <ion-input formControlName="password" type="password" clearInput>
+          </ion-input>
+        </ion-item>
+      </ion-row>
+
+      <!-- buttons -->
+      <ion-row>
+        <ion-button type="submit" [disabled]="!loginForm.valid">
+          Log in
+        </ion-button>
+        <ion-button fill="clear" [routerLink]="['/register']" routerDirection="forward">
+          Sign up
+        </ion-button>
+      </ion-row>
+      <ion-row>
+        <ion-button fill="clear" color="dark">Reset my password</ion-button>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>

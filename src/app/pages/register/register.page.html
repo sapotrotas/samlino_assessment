@@ -1,0 +1,85 @@
+<ion-content>
+  <div>
+    <div formDiv>
+      <img alt="Samlino logo" src="assets/images/samlino-logo.png" />
+
+      <form (keyup.enter)="register()" (ngSubmit)="register()" #registerForm="ngForm">
+        <!-- name -->
+        <div formCtrl>
+          <label for="name" class="label">Name</label>
+          <input type="text" class="input" id="name" name="name" required [(ngModel)]="model.name" #name="ngModel"
+            [class.invalid]="name.invalid && name.touched" />
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" errorInput>
+          <label *ngIf="name.errors.required">Name is required</label>
+        </div>
+
+        <!-- email -->
+        <div formCtrl>
+          <label for="email" class="label">Email</label>
+          <input type="email" class="input" id="email" name="email" required [(ngModel)]="model.email" #email="ngModel"
+            [class.invalid]="email.invalid && email.touched" />
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" errorInput>
+          <label *ngIf="email.errors.required">Email is required</label>
+          <!-- <label *ngIf="email.errors.email">Email format is incorrect</label> -->
+        </div>
+
+        <!--password -->
+        <div formCtrl>
+          <label for="password" class="label">Password</label>
+          <input type="password" class="input" id="password" name="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required [(ngModel)]="model.password" #password="ngModel"
+            [class.invalid]="password.invalid && password.touched" />
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" errorInput>
+          <label *ngIf="password.errors.required">Password is required</label>
+          <label *ngIf="password.errors.pattern">Password must contain at least 6 characters. <br />At least one number,
+            <br /> and one uppercase and lowercase letter</label>
+        </div>
+
+        <!-- address -->
+        <div formCtrl>
+          <label for="address" class="label">Address</label>
+          <input type="text" class="input" id="address" name="address" required [(ngModel)]="model.address"
+            #address="ngModel" [class.invalid]="address.invalid && address.touched" />
+        </div>
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" errorInput>
+          <label *ngIf="address.errors.required">Address is required</label>
+        </div>
+
+        <!-- phone -->
+        <div formCtrl>
+          <label for="phone" class="label">Phone</label>
+          <input type="tel" class="input" id="phone" name="phone" pattern="^[0-9-+\s()]*$" minlength="6" required
+            [(ngModel)]="model.phone" #phone="ngModel" [class.invalid]="phone.invalid && phone.touched" />
+        </div>
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" errorInput>
+          <label *ngIf="phone.errors.required">Phone is required</label>
+          <label *ngIf="phone.errors.pattern">Phone must contain only numbers</label>
+          <label *ngIf="phone.errors.minlength">Phone must contain at least 6 numbers</label>
+        </div>
+
+        <!-- website -->
+        <div formCtrl>
+          <label for="website" class="label">Website</label>
+          <input type="url" pattern="https?://.+" class="input" id="website" name="website" required
+            [(ngModel)]="model.website" #website="ngModel" [class.invalid]="website.invalid && website.touched" />
+        </div>
+        <div *ngIf="website.invalid && (website.dirty || website.touched)" errorInput>
+          <label *ngIf="website.errors.required">Website is required</label>
+          <label *ngIf="website.errors.pattern">Please insert a valid format url</label>
+        </div>
+
+        <div>
+          <button [routerLink]="['/login']">
+            Go back
+          </button>
+          <button type="submit">
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

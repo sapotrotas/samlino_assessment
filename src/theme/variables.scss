@@ -1,8 +1,11 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
-
-/** Ionic CSS Variables **/
+/*
+ * // Ionic CSS Variables and Theming
+ * ----------------------------------------------------------------------------
+ */
+ 
 :root {
+  --ion-font-family: 'SegoeUI' !important;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -233,4 +236,40 @@
 
     --ion-card-background: #1e1e1e;
   }
+}
+
+/*
+  * App Fonts
+  * -------------------------------------------
+  */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "SegoeUI", "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Segoe UI.ttf');
+}
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: italic;
+  font-weight: normal;
+  src: url('../assets/fonts/Segoe UI Italic.ttf');
+}
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../assets/fonts/Segoe UI Bold.ttf');
+}
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: italic;
+  font-weight: bold;
+  src: url('../assets/fonts/Segoe UI Bold Italic.ttf');
 }

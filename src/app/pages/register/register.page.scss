@@ -1,0 +1,84 @@
+div {
+  height: 100%;
+}
+
+img {
+  max-width: 60%;
+  min-height: 10vh;
+  object-fit: contain;
+  margin: 4vh 0;
+}
+
+[formDiv] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    border: 1px solid var(--ion-color-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    [formCtrl] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 1vh 2vw;
+
+      .label {
+        min-width: 80px;
+        text-align: right;
+        margin-right: 1vw;
+      }
+
+      .input {
+        width: 10vw;
+        min-width: 150px;
+      }
+    }
+
+    div:first-child {
+      margin-top: 4vh;
+    }
+
+    // btns div
+    div:last-child {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      margin: 4vh 0;
+
+      button {
+        border: 1px solid var(--ion-color-medium);
+        height: 35px;
+      }
+    }
+  }
+}
+
+/*
+ * Form validator styles
+ * -------------------------
+ */
+[errorInput] {
+  width: 100%;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0px 2vw;
+  text-align: right;
+  font-size: 0.8em;
+
+  label {
+    color: var(--ion-color-danger)
+  }
+}
+
+.invalid {
+  border-color: var(--ion-color-danger);
+}
