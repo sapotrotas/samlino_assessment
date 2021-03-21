@@ -1,9 +1,11 @@
 # samlino_assessment
 Samlino.dk Bruno Alves assessment project
 
-# Install
+# Requires
+node
+npm
 
-Requires node and npm
+# Install
 
 ## Install the Ionic CLI
   npm install -g @ionic/cli
