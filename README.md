@@ -4,10 +4,9 @@ Samlino.dk Bruno Alves assessment project
 # Requires
 node
 npm
+ionic
 
-# Install
-
-## Install the Ionic CLI
+## Install Ionic CLI
   npm install -g @ionic/cli
 
 # Usage
