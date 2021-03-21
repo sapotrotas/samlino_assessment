@@ -29,6 +29,13 @@ export class ApiProvider {
   ) { }
 
   /**
+   * Get users data
+   */
+  async getUsers() {
+    return await this.getDataArray('users');
+  }
+
+  /**
    * Get server data
    * 
    * @param resource 

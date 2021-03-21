@@ -16,26 +16,31 @@ import { STORAGE_USER, userIsAdmin } from 'src/conf';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public data: Array<any>;
-  
+  public usersData: Array<any> = [];
+
   constructor(
     private apiProvider: ApiProvider,
     private utilsProvider: UtilsProvider,
   ) { }
 
   async ngOnInit() {
-    const user = this.apiProvider.storage.getItem(STORAGE_USER);
-
+    const storedUser = this.apiProvider.storage.getItem(STORAGE_USER);
+    
     // get resource from server
-    this.data = await this.getUsersData('users');
-
+    await this.getUsersData();
+    
     // get a single random data element if user role is not ADMIN
-    if (this.data.length > 0 && !userIsAdmin(user.role)) {
-      this.data = [this.data[Math.floor(Math.random() * this.data.length)]];
+    if (this.usersData.length > 0 && !userIsAdmin(storedUser.role)) {
+      this.usersData = [this.usersData[Math.floor(Math.random() * this.usersData.length)]];
     }
   }
 
-  async getUsersData(url: string) {
+  /**
+   * Get array of users for page cards
+   * 
+   * @param url resource
+   */
+  async getUsersData() {
     const loading = await this.utilsProvider.loadingController.create({
       mode: 'ios',
       message: 'Please wait...',
@@ -43,16 +48,14 @@ export class HomePage implements OnInit {
 
     await loading.present();
 
-    let usersdata;
     try {
-      usersdata = await this.apiProvider.getDataArray(url);
+      this.usersData = await this.apiProvider.getUsers();
     } catch (e) {
       loading.dismiss();
-      log(this, e, logTypes.ERROR);
+      log(this, e, logTypes.ERROR); 
     }
 
     loading.dismiss();
-    return usersdata;
   }
 
   /**

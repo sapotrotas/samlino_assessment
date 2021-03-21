@@ -6,9 +6,6 @@ import { NavController } from '@ionic/angular';
 import { ApiProvider } from 'src/app/providers/api.provider';
 import { UtilsProvider } from 'src/app/providers/utils.provider';
 
-// Form validators
-// import { CustomValidators } from 'src/app/validators/customValidators.validator';
-
 // Interfaces
 import { log, logTypes } from 'src/app/interfaces/log.interface';
 
@@ -35,32 +32,7 @@ export class RegisterPage implements OnInit {
     public utilsProvider: UtilsProvider,
   ) { }
 
-  ngOnInit() {
-    // this.registerForm = this.formBuilder.group({
-    //   name: ['', Validators.required],
-    //   email: ['',
-    //     [
-    //       Validators.required,
-    //       // Validators.email
-    //     ]
-    //   ],
-    //   address: ['', Validators.required],
-    //   phone: ['', Validators.required],
-    //   website: ['', Validators.required],
-    //   password: ['',
-    //     [
-    //       Validators.required,
-    //       Validators.minLength(6)
-    //     ],
-    //     Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9@$!%*?&]+$')
-    //   ],
-    //   confirm: ['', Validators.required],
-    // },
-    //   // custom validators
-    //   {
-    //     validators: CustomValidators.passwordValidator('password', 'confirm'),
-    //   });
-  }
+  ngOnInit() {}
 
   ionViewWillEnter() {
     this.registerForm = document.querySelector('form');
@@ -100,16 +72,4 @@ export class RegisterPage implements OnInit {
       await this.navController.navigateRoot('login')
     }
   }
-
-  // get srform() {
-  //   return this.registerForm.controls;
-  // }
-
-  // async ngRegister() {
-  //    log(this, JSON.stringify(this.registerForm.value, null, 2), logTypes.DEBUG);
-  //   if (await this.apiProvider.register(this.registerForm.value)) {
-  //     // automatic login after successful registration
-  //     await this.apiProvider.login(formObj.email, formObj.password);
-  //   }
-  // }
 }

@@ -3,7 +3,7 @@
     <div formDiv>
       <img alt="Samlino logo" src="assets/images/samlino-logo.png" />
 
-      <form (keyup.enter)="register()" (ngSubmit)="register()" #registerForm="ngForm">
+      <form (keyup.enter)="registerForm.valid && register()" (ngSubmit)="register()" #registerForm="ngForm">
         <!-- name -->
         <div formCtrl>
           <label for="name" class="label">Name</label>
@@ -75,7 +75,7 @@
           <button [routerLink]="['/login']">
             Go back
           </button>
-          <button type="submit">
+          <button type="submit" [disabled]="!registerForm.valid">
             Sign Up
           </button>
         </div>
